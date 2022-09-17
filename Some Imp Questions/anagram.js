@@ -25,3 +25,24 @@ function checkAnagramHash(str1, str2) {
 }
 
 // console.log(checkAnagram('care', 'race'));
+
+
+let arr = ['eat', 'ate', 'cat', 'act', 'toe'];
+let newArr = [];
+let obj = {};
+for (let i = 0; i < arr.length; i++){
+    let tmp = arr[i].split('').sort().join("");
+    if (!obj[tmp]) {
+        obj[tmp] = [];
+        obj[tmp].push(arr[i]);
+    } else {
+        obj[tmp].push(arr[i]);
+    }
+
+}
+for (let key of Object.keys(obj)) {
+    newArr.push(obj[key]);
+}
+
+console.log(newArr);
+

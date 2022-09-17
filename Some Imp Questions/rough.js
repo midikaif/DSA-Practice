@@ -1,10 +1,6 @@
 
 
 
-
-
-
-
 // function triplet1(arr) {
 //     let count = 0;
 //     for (let i = 0; i < arr.length; i++) {
@@ -480,4 +476,4 @@ st.pop();
 st.pop();
 st.pop();
 st.pop();
-console.log(st.getMin());
+// console.log(st.getMin());
