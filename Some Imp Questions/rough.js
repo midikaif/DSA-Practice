@@ -1,6 +1,9 @@
 
 
 
+
+// /===========================================/
+
 // function triplet1(arr) {
 //     let count = 0;
 //     for (let i = 0; i < arr.length; i++) {
@@ -276,15 +279,15 @@
 
 
 /**
- * 
+ *
  *  1-> 1
  *  2 -> 1+1, 2 => 2
  *  3 -> 1+1+1, 1+2, 2+1, 3 => 4
  *  4 -> 1+1+1+1, 1+1+2, 1+2+1, 2+1+1, 2+2, 3+1, 1+3, 4 => 8 (n-1)+(n-2)
- *  5 -> 
- * 
- * 
- * 
+ *  5 ->
+ *
+ *
+ *
  */
 
 // function diceProb(n) {
@@ -307,22 +310,22 @@
 
 
 /**
- * 
+ *
  *  Removing Digits
  *  27 -> 27 - 7 => 20 - 2 => 18 - 8 => 10 - 1 => 9 - 9 => 0
- * 
- * 
+ *
+ *
  *  let ans = 0
  *  ans += 1;
  *  if(n%10 != 0){
- *      n -= n%10;    
+ *      n -= n%10;
  *  }
  *  else{
  *      n -= n%100;
  *  }
  *  f(n)
- * 
- * 
+ *
+ *
  */
 
 // function getDigits(n) {
@@ -355,125 +358,125 @@
 
 
 
-class Node {
-    constructor(d) {
-        this.data = d;
-        this.next = null;
-    }
-}
+// class Node {
+//     constructor(d) {
+//         this.data = d;
+//         this.next = null;
+//     }
+// }
 
-class Linklist {
-    constructor(d) {
-        this.head = null;
-        this.min = null;
-    }
-
-
-    getMin() {
-        if (this.head == null)
-            return null;
-        return this.min;
-    }
-
-    addAtHead(data) {
-        let newNode = new Node(data);
-        newNode.next = this.head;
-        this.head = newNode;
-    }
-
-    removeAtHead() {
-        if (this.head == null) return;
-        let temp = this.head.next;
-        this.head.next = null;
-        this.head = temp;
-    }
-
-    get() {
-
-        if (this.head != null)
-            return this.head.data;
-        return undefined;
-    }
-
-    isEmpty() {
-        return this.head == null;
-    }
-}
+// class Linklist {
+//     constructor(d) {
+//         this.head = null;
+//         this.min = null;
+//     }
 
 
-class Stack {
-    constructor() {
-        this.ll = new Linklist();
-    }
+//     getMin() {
+//         if (this.head == null)
+//             return null;
+//         return this.min;
+//     }
 
-    makeMin(x) {
-        this.ll.min = x;
-    }
+//     addAtHead(data) {
+//         let newNode = new Node(data);
+//         newNode.next = this.head;
+//         this.head = newNode;
+//     }
 
-    getMin() {
-        return this.ll.getMin();
-    }
+//     removeAtHead() {
+//         if (this.head == null) return;
+//         let temp = this.head.next;
+//         this.head.next = null;
+//         this.head = temp;
+//     }
 
-    push(x) {
-        if (this.isEmpty()) {
-            this.ll.addAtHead(x);
-            this.makeMin(x);
-        }
+//     get() {
 
-        if (x < this.getMin()) {
-            let temp = x - this.getMin();
-            this.ll.addAtHead(temp);
-            this.ll.addAtHead(x);
-            this.makeMin(x);
-        }
-        else {
-            let temp = x - this.getMin();
-            this.ll.addAtHead(temp);
-            this.ll.addAtHead(x);
-        }
-    }
+//         if (this.head != null)
+//             return this.head.data;
+//         return undefined;
+//     }
 
-    pop() {
-        if (this.isEmpty()) {
-            console.log("***")
-            this.makeMin(undefined)
-            return undefined;
-        }
-        this.ll.removeAtHead();
-        if (this.top() < 0) {
-            let temp = this.getMin() - this.top();
-            this.makeMin(temp);
-        }
-        this.ll.removeAtHead();
-    }
+//     isEmpty() {
+//         return this.head == null;
+//     }
+// }
 
-    top() {
-        return this.ll.get();
-    }
 
-    isEmpty() {
-        return this.ll.isEmpty();
-    }
-}
+// class Stack {
+//     constructor() {
+//         this.ll = new Linklist();
+//     }
 
-let st = new Stack();
-st.push(2);
-st.push(1);
-st.push(1);
-st.push(7);
-st.push(5);
-st.push(0);
-st.push(1);
-st.push(-1);
-st.push(-2);
-st.pop();
-st.pop();
-st.pop();
-st.pop();
-st.pop();
-st.pop();
-st.pop();
-st.pop();
-st.pop();
-st.pop();
+//     makeMin(x) {
+//         this.ll.min = x;
+//     }
+
+//     getMin() {
+//         return this.ll.getMin();
+//     }
+
+//     push(x) {
+//         if (this.isEmpty()) {
+//             this.ll.addAtHead(x);
+//             this.makeMin(x);
+//         }
+
+//         if (x < this.getMin()) {
+//             let temp = x - this.getMin();
+//             this.ll.addAtHead(temp);
+//             this.ll.addAtHead(x);
+//             this.makeMin(x);
+//         }
+//         else {
+//             let temp = x - this.getMin();
+//             this.ll.addAtHead(temp);
+//             this.ll.addAtHead(x);
+//         }
+//     }
+
+//     pop() {
+//         if (this.isEmpty()) {
+//             console.log("***")
+//             this.makeMin(undefined)
+//             return undefined;
+//         }
+//         this.ll.removeAtHead();
+//         if (this.top() < 0) {
+//             let temp = this.getMin() - this.top();
+//             this.makeMin(temp);
+//         }
+//         this.ll.removeAtHead();
+//     }
+
+//     top() {
+//         return this.ll.get();
+//     }
+
+//     isEmpty() {
+//         return this.ll.isEmpty();
+//     }
+// }
+
+// let st = new Stack();
+// st.push(2);
+// st.push(1);
+// st.push(1);
+// st.push(7);
+// st.push(5);
+// st.push(0);
+// st.push(1);
+// st.push(-1);
+// st.push(-2);
+// st.pop();
+// st.pop();
+// st.pop();
+// st.pop();
+// st.pop();
+// st.pop();
+// st.pop();
+// st.pop();
+// st.pop();
+// st.pop();
 // console.log(st.getMin());
