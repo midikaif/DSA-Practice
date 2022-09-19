@@ -1,19 +1,3 @@
-
-let totalP = 0
-function mazePath(i, j, n, m, osf) {
-    if (i == n - 1 && j == m - 1) {
-        console.log(osf);
-        totalP += 1;
-        return;
-    }
-    if (i >= n || j >= m) return;
-    mazePath(i + 1, j, n, m, osf + "R");
-    mazePath(i, j + 1, n, m, osf + "D");
-}
-mazePath(0, 0, 3, 3, '');
-console.log(totalP);
-
-
 /*
     GIVEN A VALUE N, HOW MANY BINARY STRINGS OF LENGTH N ARE THERE WITH NO CONSECUTIVE ONES
 
