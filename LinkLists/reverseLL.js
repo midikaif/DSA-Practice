@@ -10,7 +10,7 @@ class Linklist {
         this.head = null;
     }
 
-    get() {
+    getHead() {
         return this.head;
     }
 
@@ -84,9 +84,9 @@ class Linklist {
 
     reversePointerIteratibly() {
         /**
-		 * Time: O(n)
-		 * Space: O(1)
-		 */
+         * Time: O(n)
+         * Space: O(1)
+         */
         let prev = null;
         let curr = this.head;
         while (curr != null) {
@@ -100,9 +100,9 @@ class Linklist {
 
     pointerRecursion(curr) {
         /**
-		 * Time: O(n)
-		 * Space: O(n) // due to call stack space, call stack will have n entries when we reach tail
-		 */
+         * Time: O(n)
+         * Space: O(n) // due to call stack space, call stack will have n entries when we reach tail
+         */
         if (curr.next == null) {
             // if node's next is null it is the tail node
             return curr;
@@ -120,10 +120,10 @@ class Linklist {
 
     reverseValueIteratibly() {
         /**
-		 * Time: O(n^2)
-		 * Space: O(1)
-		 */
-        
+         * Time: O(n^2)
+         * Space: O(1)
+         */
+
         let n = 0;
         let start = this.head;
         let temp = this.head;
@@ -145,29 +145,29 @@ class Linklist {
     }
 
     g(curr) {
-		/**
-		 * Time: O(n)
-		 * Space: O(n)
-		 */
-		if(curr == null) {
-			return;
-		}
-		this.g(curr.next);
-		if(this.start == curr || curr.next == this.start) {
-			this.flag = false;
-		}
-		if(this.flag == true) {
-			let temp = this.start.data;
-			this.start.data = curr.data;
-			curr.data = temp;
-			this.start = this.start.next;
-		}
-	}
-	reverseLLValueRecursive() {
-		this.start = this.head;
-		this.flag = true;
-		this.g(this.head);
-	}
+        /**
+         * Time: O(n)
+         * Space: O(n)
+         */
+        if (curr == null) {
+            return;
+        }
+        this.g(curr.next);
+        if (this.start == curr || curr.next == this.start) {
+            this.flag = false;
+        }
+        if (this.flag == true) {
+            let temp = this.start.data;
+            this.start.data = curr.data;
+            curr.data = temp;
+            this.start = this.start.next;
+        }
+    }
+    reverseLLValueRecursive() {
+        this.start = this.head;
+        this.flag = true;
+        this.g(this.head);
+    }
 
     display() {
         let temp = this.head;
@@ -191,24 +191,21 @@ class Linklist {
     }
 }
 
+
+function reverseLL(prev, curr) {
+    if (curr === null) return;
+    reverseLL(curr, curr.next);
+    curr.next = prev;
+}
+
+
 let ll = new Linklist();
-ll.addAtHead(4)
-ll.addAtHead(8)
+ll.addAtTail(1);
+ll.addAtTail(2);
+ll.addAtTail(3);
+ll.addAtTail(4);
 ll.addAtTail(5);
-ll.addAtTail(10);
-ll.display()
-
-// console.log("-----------------------------------");
-// ll.reverseValueIteratibly();
-// ll.display();
-// ll.removeAtHead();
-// ll.addAtTail(110);
-
-// ll.addAt(0, 58);
-// ll.display();
-// ll.removeAt(0)
-// ll.display();
-
-// ll.reverse();
-// ll.reverseRecursively();
-// ll.display();
+ll.display();
+console.log("***");
+reverseLL(null, ll.getHead());
+ll.display();

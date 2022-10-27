@@ -9,4 +9,21 @@
     1+2
     2+1
     3
+
+                n=3
+                /
+               /
+
 */
+function diceProb(n) {
+    if (n === 0) {
+        return 1;
+    }
+    let ans = 0;
+    for (let i = 1; i <= 6; i++) {
+        if (n - i < 0) continue;
+        ans += diceProb(n - i);
+    }
+    return ans
+}
+console.log(diceProb(3));

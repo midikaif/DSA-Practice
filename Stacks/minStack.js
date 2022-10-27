@@ -67,12 +67,12 @@ class Stack {
         if (x < this.getMin()) {
             let temp = x - this.getMin();
             this.ll.addAtHead(temp);
-            this.ll.addAtHead(x);
+            // this.ll.addAtHead(x);
             this.makeMin(x);
         }
         else {
             let temp = x - this.getMin();
-            this.ll.addAtHead(temp);
+            // this.ll.addAtHead(temp);
             this.ll.addAtHead(x);
         }
     }
@@ -88,11 +88,16 @@ class Stack {
             let temp = this.getMin() - this.top();
             this.makeMin(temp);
         }
-        this.ll.removeAtHead();
+        // this.ll.removeAtHead();
     }
 
     top() {
-        return this.ll.get();
+        if (this.ll.get() < 0) {
+            return this.getMin()-this.ll.get();
+        }
+        else {
+            return this.getMin();
+        }
     }
 
     isEmpty() {
@@ -108,8 +113,9 @@ st.push(7);
 st.push(5);
 st.push(0);
 st.push(1);
-st.push(-1);
+// st.push(-1);
 st.push(-2);
+st.push(-5);
 st.pop();
 st.pop();
 st.pop();
